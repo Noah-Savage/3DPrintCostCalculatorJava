@@ -8,9 +8,9 @@ class Main {
     String hasColor = "";
     int size = 0;
     Double cost = 0.00;
-    String costStr = "";
 
     Map<String, Double> filPrices = new HashMap<String, Double>();
+    //Prices of different filaments per kilogram
     filPrices.put("PLA", 19.99);
     filPrices.put("PLA+", 24.99);
     filPrices.put("PETG", 24.99);
@@ -56,9 +56,11 @@ class Main {
         }
       }
       while(true);
+      //Divide price by 1000 first to get price per gram
       cost = (filPrices.get(filType) / 1000) * size;
       
     }
     System.out.printf("Cost of your print is: $ %.2f %n", cost);
+    in.close();
   }
 } 
