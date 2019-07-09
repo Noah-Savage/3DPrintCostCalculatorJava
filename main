@@ -1,0 +1,64 @@
+import java.util.*;
+
+
+class Main {
+  public static void main(String[] args) {
+    Scanner in = new Scanner(System.in);
+    String filType = "";
+    String hasColor = "";
+    int size = 0;
+    Double cost = 0.00;
+    String costStr = "";
+
+    Map<String, Double> filPrices = new HashMap<String, Double>();
+    filPrices.put("PLA", 19.99);
+    filPrices.put("PLA+", 24.99);
+    filPrices.put("PETG", 24.99);
+    filPrices.put("ABS", 19.99);
+    filPrices.put("Nylon", 35.99);
+    filPrices.put("TPE", 39.99);
+    filPrices.put("Wood", 69.99);
+    filPrices.put("Metal", 104.99);
+    filPrices.put("Conductive", 109.99);
+    filPrices.put("Magnetic", 109.99);
+    filPrices.put("HTPLA", 63.99);
+    filPrices.put("Carbon Fiber", 51.99);
+
+    System.out.print("What type of material is the print? ");
+    filType = in.nextLine();
+    while(!filPrices.containsKey(filType)){
+      System.out.println("Error! Not a valid material!");
+      System.out.print("What type of material is the print? ");
+      filType = in.nextLine();
+    }
+
+    System.out.print("Do you already have the color (y/n)? ");
+    hasColor = in.nextLine();
+    while(!((hasColor.equals("y")) || hasColor.equals("n"))){
+      System.out.println("Error! Not a valid response!");
+      System.out.print("Do you already have the color (y/n)? ");
+      hasColor = in.nextLine();
+    }
+
+    if(hasColor.equals("n")){
+      cost = filPrices.get(filType);
+    }
+    else{
+      System.out.print("How many grams is the print? ");
+      do{ 
+      try {
+          String s = in.nextLine();
+          size = Integer.parseInt(s);
+          break;
+      }
+      catch (Exception e){
+          System.out.println("Not a valid number! Try again!");
+        }
+      }
+      while(true);
+      cost = (filPrices.get(filType) / 1000) * size;
+      
+    }
+    System.out.printf("Cost of your print is: $ %.2f %n", cost);
+  }
+} 
