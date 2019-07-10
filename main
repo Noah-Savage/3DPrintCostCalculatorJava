@@ -42,6 +42,7 @@ class Main {
 
     if(hasColor.equals("n")){
       cost = filPrices.get(filType);
+      System.out.print("A spool of " + filType.toLowerCase() + " costs $" + cost);
     }
     else{
       System.out.print("How many grams is the print? ");
@@ -58,9 +59,8 @@ class Main {
       while(true);
       //Divide price by 1000 first to get price per gram
       cost = (filPrices.get(filType) / 1000) * size;
-      
+      System.out.printf("Cost of your print is: $ %.2f %n", cost);
     }
-    System.out.printf("Cost of your print is: $ %.2f %n", cost);
     in.close();
   }
 } 
