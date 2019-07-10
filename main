@@ -11,28 +11,28 @@ class Main {
 
     Map<String, Double> filPrices = new HashMap<String, Double>();
     //Prices of different filaments per kilogram
-    filPrices.put("PLA", 19.99);
-    filPrices.put("PLA+", 24.99);
-    filPrices.put("PETG", 24.99);
-    filPrices.put("ABS", 19.99);
-    filPrices.put("Nylon", 35.99);
-    filPrices.put("TPE", 39.99);
-    filPrices.put("Wood", 69.99);
-    filPrices.put("Metal", 104.99);
-    filPrices.put("Conductive", 109.99);
-    filPrices.put("Magnetic", 109.99);
-    filPrices.put("HTPLA", 63.99);
-    filPrices.put("Carbon Fiber", 51.99);
+    filPrices.put("pla", 19.99);
+    filPrices.put("pla+", 24.99);
+    filPrices.put("petg", 24.99);
+    filPrices.put("abs", 19.99);
+    filPrices.put("nylon", 35.99);
+    filPrices.put("tpe", 39.99);
+    filPrices.put("wood", 69.99);
+    filPrices.put("metal", 104.99);
+    filPrices.put("conductive", 109.99);
+    filPrices.put("magnetic", 109.99);
+    filPrices.put("htpla", 63.99);
+    filPrices.put("carbon fiber", 51.99);
 
     System.out.print("What type of material is the print? ");
-    filType = in.nextLine();
+    filType = in.nextLine().toLowerCase();
     while(!filPrices.containsKey(filType)){
       System.out.println("Error! Not a valid material!");
       System.out.print("What type of material is the print? ");
       filType = in.nextLine();
     }
 
-    System.out.print("Do you already have the color (y/n)? ");
+    System.out.print("Do you already have the color/filament (y/n)? ");
     hasColor = in.nextLine();
     while(!((hasColor.equals("y")) || hasColor.equals("n"))){
       System.out.println("Error! Not a valid response!");
@@ -63,4 +63,4 @@ class Main {
     }
     in.close();
   }
-} 
+}   
